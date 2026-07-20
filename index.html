@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алина Гармаева | Digital Marketer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap');
+.img-placeholder {
+    width: 100% !important;
+    max-width: 250px !important; /* Ограничивает ширину */
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important; /* Соотношение сторон */
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.img-placeholder img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Обрезает лишнее, не растягивая */
+    display: block !important;
+}
+
+.video-box {
+    width: 100% !important;
+    max-width: 280px !important; /* Ограничивает ширину видео */
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+}
+
+.video-box img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+        :root {
+            --bg: #0a0a0a;
+            --accent: #ffffff;
+            --secondary: #707070;
+            --card-bg: #141414;
+            --highlight: #00ff88;
+            --border: #222222;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 30px;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 1; }
+
+        /* Hero Section */
+        .hero { padding: 80px 0 100px 0; }
+
+        .hero-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--highlight);
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin: 0;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .hero-description {
+            max-width: 500px;
+            font-size: 18px;
+            color: var(--secondary);
+            font-weight: 300;
+        }
+
+        .cta-main {
+            background: var(--highlight);
+            color: var(--highlight);
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .cta-main:hover {
+            background: var(--highlight);
+            transform: translateY(-5px);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-bottom: 120px;
+        }
+
+        .stat-item {
+            background: var(--bg);
+            padding: 40px;
+        }
+
+        .stat-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 42px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 14px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Common Section Styles */
+        section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .section-title {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--highlight);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--secondary);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Skills Bento Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-group {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-group h3 {
+            margin-top: 0;
+            font-size: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-group h3:before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--highlight);
+            display: inline-block;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-item {
+            font-size: 14px;
+            color: #ccc;
+            border-left: 1px solid #333;
+            padding-left: 15px;
+        }
+
+        .skill-item b {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        /* Experience Section */
+        .exp-item {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-item:last-child { border-bottom: none; }
+
+        .exp-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--secondary);
+        }
+
+        .exp-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        .exp-role {
+            display: inline-block;
+            background: #1a1a1a;
+            padding: 4px 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .exp-desc { color: var(--secondary); font-size: 16px; max-width: 600px; }
+
+        /* Case Studies Grid */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 { font-size: 32px; font-weight: 600; margin: 0; }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px 40px;
+        }
+
+        .case-card { text-decoration: none; color: inherit; display: block; }
+
+.img-placeholder {
+    width: 100%;
+    max-width: 250px; /* ЭТОТ ПАРАМЕТР ограничит ширину картинки. Уменьшайте число, если все еще крупно */
+    aspect-ratio: 4 / 5; 
+    background: #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin: 0 auto; /* Центрирует картинку в колонке */
+}
+
+.img-placeholder img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* !important заставит Tilda применить именно это свойство */
+}
+        .case-card:hover .case-image { border-color: var(--highlight); transform: scale(0.98); }
+
+        .case-info h3 { font-size: 24px; margin: 0 0 10px 0; }
+        .case-tags { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--secondary); }
+        .case-result { margin-top: 15px; color: var(--highlight); font-weight: 600; }
+
+        /* Footer */
+        footer { padding: 150px 0 80px 0; text-align: center; }
+        .footer-title { font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; margin-bottom: 50px; }
+        .footer-links { display: flex; justify-content: center; gap: 40px; }
+        .footer-links a { color: var(--accent); text-decoration: none; font-size: 18px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--highlight); }
+
+        @media (max-width: 900px) {
+            .about-content, .skills-container, .exp-item, .cases-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 4rem; }
+            .skill-list { grid-template-columns: 1fr; }
+        }
+/* --- ИСПРАВЛЕННАЯ АДАПТИВНАЯ ВЕРСТКА --- */
+
+/* Планшеты (до 900px) */
+@media screen and (max-width: 900px) {
+    .hero h1 { 
+        font-size: 3rem !important;
+        white-space: normal !important; /* Разрешаем перенос */
+    }
+    .about-content, .skills-container, .cases-grid, .exp-item { 
+        grid-template-columns: 1fr !important; 
+        gap: 30px !important; 
+    }
+    .stats-grid { 
+        grid-template-columns: 1fr 1fr !important; 
+    }
+}
+
+/* Мобильные телефоны (до 600px) */
+@media screen and (max-width: 600px) {
+    .container { padding: 0 20px !important; }
+    
+    nav { 
+        flex-direction: column !important; 
+        padding: 20px 0 !important;
+        gap: 15px !important;
+    }
+
+    /* ТОТ САМЫЙ ЗАГОЛОВОК */
+    .hero h1 { 
+        font-size: 2.2rem !important; /* Если все равно не влезет, уменьшите до 1.8rem */
+        line-height: 1.1 !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .hero-description { font-size: 16px !important; }
+
+    .stats-grid { 
+        grid-template-columns: 1fr !important; 
+        margin-bottom: 40px !important;
+    }
+    
+    .stat-item { padding: 20px !important; }
+    .stat-num { font-size: 28px !important; }
+
+    section { padding: 50px 0 !important; }
+    
+    .about-text h2 { font-size: 22px !important; }
+    
+    .footer-title { font-size: 1.6rem !important; }
+    .footer-links { flex-direction: column !important; gap: 15px !important; }
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">Алина Гармаева</div>
+            <div class="nav-links">
+                <a href="#about">Обо мне</a>
+                <a href="#cases">Кейсы</a>
+                <a href="mailto:garmaevaalina18@gmail.com">Контакты</a>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero" style="border-top: none;">
+            <span class="hero-label">// DIGITAL • PERFORMANCE • INFLUENCE</span>
+            <h1>Комплексный маркетинг</h1>
+            <div class="hero-flex">
+                <p class="hero-description">
+                    Привожу пользователей через контент, инфлюенс-маркетинг и Telegram Ads. Снижаю стоимость привлечения в 4–5 раз и масштабирую результат.
+                </p>
+                <a href="#cases" class="cta-main" color: var(--bg)>Смотреть кейсы →</a>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-num">2800+</span>
+                <span class="stat-text">юзеров за 5 месяцев</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">64 ₽</span>
+                <span class="stat-text">CPU в B2B</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">82%</span>
+                <span class="stat-text">рост охватов</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">30+</span>
+                <span class="stat-text">размещений в месяц</span>
+            </div>
+        </div>
+
+        <!-- ABOUT ME -->
+        <section id="about">
+            <span class="section-title">01 / О подходе</span>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Маркетинг — комплексный подход</h2>
+                </div>
+                <div class="about-text">
+                    <p>Работала в сложной B2B-нише с узкой ЦА.
+                    <p>Выстраиваю систему с нуля: сегментация, тест каналов, юнит-экономика. Оставляю только то, что дает прибыль.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <span class="section-title">02 / Навыки</span>
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3>Hard Skills</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><b>Telegram Ads</b>Запуск и фокус на CPU</div>
+                        <div class="skill-item"><b>Influence</b>Окупаемость и системность</div>
+                        <div class="skill-item"><b>Content</b>Воронки в Reels и каруселях</div>
+                        <div class="skill-item"><b>Analytics</b>Повышение эффективности</div>
+                    </div>
+                </div>
+                <div class="skill-group" style="border-left: none;">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-item" style="margin-bottom:15px; border:none; padding:0;">• Быстрая адаптация</div>
+                    <div class="skill-item" style="margin-bottom:15px; border:none; padding:0;">• Многозадачность</div>
+                    <div class="skill-item" style="margin-bottom:15px; border:none; padding:0;">• Комплексный подход</div>
+                    <div class="skill-item" style="margin-bottom:15px; border:none; padding:0;">• Инициативность</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <span class="section-title">03 / Опыт работы</span>
+            <div class="exp-item">
+                <div class="exp-time">Окт 2024 — Ноя 2025</div>
+                <div class="exp-info">
+                    <h3>Unpacks</h3>
+                    <span class="exp-role">Маркетолог</span>
+                    <p class="exp-desc">Привлечение селлеров в Telegram-приложение через инфлюенс и рекламу. Выстраивание маркетинга с нуля в B2B-нише.</p>
+                </div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-time">Мар 2026 — Апр 2026</div>
+                <div class="exp-info">
+                    <h3>Премиум Парк Отель</h3>
+                    <span class="exp-role">Маркетолог</span>
+                    <p class="exp-desc">Digital-коммуникации: обновление точек контакта, органический рост и эстетичный контент.</p>
+                </div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-time">Окт 2024 — Фев 2025</div>
+                <div class="exp-info">
+                    <h3>Снежный Барс</h3>
+                    <span class="exp-role">Маркетолог</span>
+                    <p class="exp-desc">Контент-стратегия, развитие соцсетей и формирование позиционирования.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDIES -->
+        <section id="cases">
+            <span class="section-title">04 / Проекты</span>
+            <div class="cases-grid">
+                <a href="https://alinagarm.tilda.ws/unpacks" class="case-card">
+                    <div class="case-image">
+                   <img src="https://optim.tildacdn.pub/tild3632-3064-4366-b332-383230313064/-/format/webp/unpacks.png.webp" alt="Кейс Unpacks" style="border-radius: 12px; width:100% !important; height:100% !important; object-fit:cover !important;">
+                   </div>
+                    <div class="case-info">
+                        <div class="case-tags">Telegram Ads • Influence • SMM</div>
+                        <h3>Unpacks: B2B привлечение</h3>
+                        <div class="case-result">2800+ юзеров, CPU 64 ₽</div>
+                    </div>
+                </a>
+                <a href="https://alinagarm.tilda.ws/tepleevo" class="case-card">
+                <div class="case-image">
+                    <img src="https://optim.tildacdn.pub/tild3631-6133-4263-b636-393761616235/-/format/webp/noroot.png.webp" alt="Кейс Unpacks" style="border-radius: 12px; width:100% !important; height:100% !important; object-fit:cover !important;">
+                </div>
+                    <div class="case-info">
+                        <div class="case-tags">Content Strategy • SMM</div>
+                        <h3>Премиум Парк Отель</h3>
+                        <div class="case-result">+82% просмотров</div>
+                    </div>
+                </a>
+
+                <a href="https://alinagarm.tilda.ws/sbars" class="case-card">
+                    <div class="case-image">
+                        <img src="https://static.tildacdn.com/tild3162-6330-4338-a236-393734653330/IMG_9295.png" alt="Кейс Unpacks" style="border-radius: 12px; width:100% !important; height:100% !important; object-fit:cover !important;">
+                    </div>
+                    <div class="case-info">
+                        <div class="case-tags">SMM • Telegram Ads</div>
+                        <h3>Снежный Барс</h3>
+                        <div class="case-result">+43% подписчиков</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-title">Обсудим ваш проект?</div>
+            <div class="footer-links">
+                <a href="https://t.me/actuallygoner">Telegram</a>
+                <a href="mailto:garmaevaalina18@gmail.com">Email</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
